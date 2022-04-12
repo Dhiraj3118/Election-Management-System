@@ -15,7 +15,7 @@ exports.registerVoter = async (req, res) => {
       verified: false,
     });
 
-    res.status(201).json({
+    return res.status(201).json({
       success: true,
       msg: "user created successfully",
       data: {
@@ -25,7 +25,7 @@ exports.registerVoter = async (req, res) => {
   } catch (error) {
     console.log(error);
 
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       error,
       msg: "Error in saving data",
@@ -52,19 +52,19 @@ exports.login = async (req, res) => {
       console.log(data);
 
       if (data.password == password) {
-        res.status(200).json({
+        return res.status(200).json({
           success: true,
           msg: "login successfull",
           data: data,
         });
       } else {
-        res.status(400).json({
+        return res.status(400).json({
           success: false,
           msg: "Wrong Email and Password combination",
         });
       }
     } else {
-      res.status(404).json({
+      return res.status(404).json({
         success: false,
         msg: "User does not exists!",
       });
@@ -72,7 +72,7 @@ exports.login = async (req, res) => {
   } catch (error) {
     console.log(error);
 
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       error,
       msg: "Server error in user login",
