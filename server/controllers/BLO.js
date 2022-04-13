@@ -1,4 +1,4 @@
-const { addDoc, getDocs, collection, where, updateDoc, doc } = require("firebase/firestore");
+const { getDocs, collection, where, updateDoc, doc } = require("firebase/firestore");
 const { db } = require("../firebase");
 
 exports.getVotersList = async (req, res) => {
