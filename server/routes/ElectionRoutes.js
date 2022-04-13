@@ -5,10 +5,10 @@ const {
   castVote,
   getResults,
 } = require("../controllers/Election");
-const { checkBody } = require("../middlewares/General");
+const { checkBody, getState } = require("../middlewares/General");
 const router = express.Router();
 
-router.get("/list", getElectionList);
+router.get("/list", getState, getElectionList);
 
 router.get("/election-candidates", getElectionCandidates);
 
