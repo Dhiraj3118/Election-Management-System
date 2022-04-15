@@ -3,8 +3,11 @@ const {
   applyCandidature,
   getCandidateData,
   updateCandidature,
+  uploadCandidature,
 } = require("../controllers/Candidate");
 const router = express.Router();
+
+router.post("/upload-candidature", uploadCandidature);
 
 router.post("/apply", applyCandidature);
 
