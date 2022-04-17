@@ -4,6 +4,8 @@ const {
   query,
   where,
   getDocs,
+  updateDoc,
+  doc,
 } = require("firebase/firestore");
 const { db } = require("../firebase");
 
@@ -80,4 +82,26 @@ exports.login = async (req, res) => {
   }
 };
 
-exports.updateUser = (req, res) => {};
+exports.updateUser = async (req, res) => {
+  const id = req.body.userId;
+  let user = { ...req.body };
+  delete user.userId;
+  try {
+    await updateDoc(doc(db, "Voters", id), {
+      ...user,
+    });
+
+    return res.status(200).json({
+      success: true,
+      msg: "Details updated successfully",
+    });
+  } catch (error) {
+    console.log(error);
+
+    return res.status(500).json({
+      success: false,
+      error,
+      msg: "Error in saving data",
+    });
+  }
+};
