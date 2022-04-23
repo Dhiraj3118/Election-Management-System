@@ -1,12 +1,19 @@
-const { addDoc, collection } = require("firebase/firestore");
+const {
+  addDoc,
+  collection,
+  updateDoc,
+  doc,
+  setDoc,
+} = require("firebase/firestore");
 const { db } = require("../firebase");
 
 exports.uploadCandidature = async (req, res) => {};
 
 exports.applyCandidature = async (req, res) => {
   try {
-    const docRef = await addDoc(collection(db, "Candidates"), {
+    const docRef = await setDoc(doc(db, "Candidates", req.params.id), {
       ...req.body,
+      userId: req.params.id,
       approved: false,
       applyDate: Date.now(),
     });

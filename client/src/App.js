@@ -1,26 +1,59 @@
-import { useEffect } from "react";
-function App() {
-  /* useEffect(() => {
-    fetch("http://localhost:5000/api/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: "abcde@gmail.com",
-        password: "123456",
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);*/
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./auth/Login";
+import Register from "./auth/Register";
+import Dashboard from "./user/Dashboard";
+import { UnauthRoute, UserRoute } from "./AuthRoutes";
+import Home from "./Home";
+import ApplyCandidature from "./user/ApplyCandidature";
 
-  return <></>;
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" exact element={<Home />} />
+
+        {/* Unauthenticated routes */}
+        <Route
+          path="/login"
+          exact
+          element={
+            <UnauthRoute>
+              <Login />
+            </UnauthRoute>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <UnauthRoute>
+              <Register />
+            </UnauthRoute>
+          }
+          exact
+        />
+
+        {/* User Routes */}
+        <Route
+          path="/u/dashboard"
+          element={
+            <UserRoute>
+              <Dashboard />
+            </UserRoute>
+          }
+          exact
+        />
+        <Route
+          path="/u/dashboard"
+          element={
+            <UserRoute>
+              <ApplyCandidature />
+            </UserRoute>
+          }
+          exact
+        />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;

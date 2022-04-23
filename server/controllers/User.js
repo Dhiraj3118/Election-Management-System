@@ -6,6 +6,7 @@ const {
   getDocs,
   updateDoc,
   doc,
+  getDoc,
 } = require("firebase/firestore");
 const { db } = require("../firebase");
 
@@ -51,7 +52,12 @@ exports.login = async (req, res) => {
       querySnapshot.forEach((doc) => {
         data = { id: doc.id, ...doc.data() };
       });
-      console.log(data);
+
+      const docSnap = await getDoc(doc(db, "Candidates", data.id));
+
+      if (docSnap.exists()) {
+        data.role = 1;
+      }
 
       if (data.password == password) {
         return res.status(200).json({

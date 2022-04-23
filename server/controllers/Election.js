@@ -7,8 +7,10 @@ const {
   updateDoc,
   doc,
   increment,
+  getDoc,
 } = require("firebase/firestore");
 const { db } = require("../firebase");
+const { get } = require("../routes/AdminRoutes");
 
 exports.getElectionList = async (req, res) => {
   try {
@@ -96,4 +98,54 @@ exports.castVote = async (req, res) => {
     });
   }
 };
-exports.getResultsForUser = async (req, res) => {};
+exports.getResultsForUser = async (req, res) => {
+  const { electionId } = req.body;
+
+  try {
+    const elecDoc = await getDoc(doc(db, "Elections", electionId));
+
+    if (elecDoc.data().declared) {
+      const docSnap = await getDocs(
+        collection(db, "Votes"),
+        where("electionId", "==", electionId)
+      );
+
+      const votes = [];
+
+      docSnap.forEach((doc) => {
+        votes.push({ id: doc.id, ...doc.data() });
+      });
+
+      const voteCount = votes.reduce(async (acc, value) => {
+        const id = value.candidateId;
+        if (value in acc) {
+          acc[id].vote++;
+        } else {
+          const candDoc = await getDoc(doc(db, "Candidates", id));
+          acc[id] = { vote: 1, name: candDoc.data().name };
+        }
+      }, {});
+
+      data = { electionId, voteCount };
+
+      return res.status(200).json({
+        success: true,
+        msg: "Stats fetched successfully",
+        data,
+      });
+    }
+
+    return res.status(401).json({
+      success: false,
+      msg: "Results not declared still",
+    });
+  } catch (error) {
+    console.log(error);
+
+    return res.status(500).json({
+      success: false,
+      error,
+      msg: "Error in fetching data",
+    });
+  }
+};

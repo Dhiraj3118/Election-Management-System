@@ -15,6 +15,6 @@ router.get("/election-candidates", getElectionCandidates);
 
 router.post("/cast-vote", isVerified, checkBody, castVote);
 
-router.get("/get-results", getResultsForUser);
+router.get("/get-results", isVerified, checkBody, getResultsForUser);
 
 module.exports = router;

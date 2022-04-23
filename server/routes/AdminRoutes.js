@@ -14,7 +14,7 @@ router.post("/create-election", isAdmin, checkBody, createElection);
 
 router.put("/assign-role", isAdmin, checkBody, assignRoles);
 
-router.get("/get-stats", isAdmin, getStats);
+router.get("/get-stats", isAdmin, checkBody, getStats);
 
 router.put("/declare-results", isAdmin, checkBody, declareResults);
 
