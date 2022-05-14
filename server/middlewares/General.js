@@ -15,8 +15,8 @@ exports.checkBody = (req, res, next) => {
 
 exports.getState = async (req, res, next) => {
   const id = req.headers.authorization.substr(7);
-    const docSnap = await getDoc(doc(db, "Voters", id));
-    req.params.id = id;
-    req.params.state = docSnap.data().state;
-    next();
-}
+  const docSnap = await getDoc(doc(db, "Voters", id));
+  req.params.id = id;
+  req.params.state = docSnap.data().state;
+  next();
+};

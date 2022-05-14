@@ -4,6 +4,7 @@ const {
   updateDoc,
   doc,
   setDoc,
+  increment,
 } = require("firebase/firestore");
 const { db } = require("../firebase");
 
@@ -18,11 +19,15 @@ exports.applyCandidature = async (req, res) => {
       applyDate: Date.now(),
     });
 
+    await updateDoc(doc(db, "Elections", req.body.electionId), {
+      candidateCount: increment(1),
+    });
+
     return res.status(201).json({
       success: true,
       msg: "candidate created successfully",
       data: {
-        id: docRef.id,
+        id: req.params.id,
       },
     });
   } catch (error) {

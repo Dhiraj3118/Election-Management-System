@@ -1,3 +1,4 @@
+const { async } = require("@firebase/util");
 const {
   addDoc,
   collection,
@@ -108,6 +109,29 @@ exports.updateUser = async (req, res) => {
       success: false,
       error,
       msg: "Error in saving data",
+    });
+  }
+};
+
+exports.getStates = async (req, res) => {
+  try {
+    const querySnap = await getDocs(collection(db, "Areas"));
+
+    const areas = [];
+
+    querySnap.forEach((doc) => {
+      areas.push(doc.data());
+    });
+
+    return res.status(200).json({
+      success: true,
+      data: areas,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      msg: "Error in fetching states",
+      error,
     });
   }
 };

@@ -3,8 +3,10 @@ const { db } = require("../firebase");
 
 exports.isVerified = async (req, res, next) => {
   const id = req.headers.authorization.substr(7);
+
   const docSnap = await getDoc(doc(db, "Voters", id));
-  if (docSnap.data().verified) {
+
+  if (!docSnap.data().verified) {
     return res.status(403).json({
       success: false,
       msg: "Unauthorized",
@@ -43,7 +45,7 @@ exports.isBLO = async (req, res, next) => {
     });
   }
   req.params.id = id;
-  req.params.area = docSnap.data().area;
+  req.params.city = docSnap.data().city;
   next();
 };
 exports.isRO = async (req, res, next) => {
@@ -57,7 +59,7 @@ exports.isRO = async (req, res, next) => {
     });
   }
   req.params.id = id;
-  req.params.area = docSnap.data().area;
+  req.params.city = docSnap.data().city;
   next();
 };
 exports.isAdmin = async (req, res, next) => {
