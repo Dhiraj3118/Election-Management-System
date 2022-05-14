@@ -45,7 +45,7 @@ exports.getElectionCandidates = async (req, res) => {
   try {
     const q = query(
       collection(db, "Candidates"),
-      where("name", "==", req.query.electionId)
+      where("electionId", "==", req.query.electionId)
     );
     const docSnap = await getDocs(q);
 
@@ -54,6 +54,8 @@ exports.getElectionCandidates = async (req, res) => {
     docSnap.forEach((doc) => {
       data.push({ id: doc.id, ...doc.data() });
     });
+
+    console.log(data);
 
     return res.status(200).json({
       success: true,
@@ -77,7 +79,7 @@ exports.castVote = async (req, res) => {
       voterId: req.params.id,
     });
 
-    await updateDoc(doc(db, "Elections", req.body.election_id), {
+    await updateDoc(doc(db, "Elections", req.body.electionId), {
       vote_count: increment(1),
     });
 

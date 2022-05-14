@@ -32,6 +32,7 @@ const Login = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
+          console.log(data);
           console.log("Login Successful");
           localStorage.setItem(
             "election-data",

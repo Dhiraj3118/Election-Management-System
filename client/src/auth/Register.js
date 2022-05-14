@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
@@ -22,6 +22,8 @@ const Register = () => {
 
   const [accept, setAccept] = useState(false);
   const [error, setError] = useState("");
+  const [areaData, setAreaData] = useState([]);
+  const [states, setStates] = useState([]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,12 +37,18 @@ const Register = () => {
 
     console.log("Registering...");
 
+    let body = data;
+    body["name"] = data.fname + " " + data.mname + " " + data.lname;
+    delete body["fname"];
+    delete body["mname"];
+    delete body["lname"];
+
     fetch("http://localhost:5000/user/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(body),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -56,6 +64,20 @@ const Register = () => {
         console.log(error);
       });
   };
+
+  useEffect(() => {
+    fetch("http://localhost:5000/user/get-states")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setAreaData(data.data);
+          const statesArr = [...new Set(data.data.map((item) => item.State))];
+          setStates(statesArr);
+        } else {
+          setError(data.msg);
+        }
+      });
+  }, []);
 
   return (
     <div>
@@ -152,13 +174,7 @@ const Register = () => {
               onChange={handleChange}
               placeholder="Your Address"
             ></textarea>
-            <input
-              type="text"
-              name="city"
-              value={data.city}
-              onChange={handleChange}
-              placeholder="City"
-            />
+
             <input
               type="number"
               name="pincode"
@@ -166,13 +182,27 @@ const Register = () => {
               onChange={handleChange}
               placeholder="Pincode"
             />
-            <input
-              type="text"
-              name="state"
-              value={data.state}
-              onChange={handleChange}
-              placeholder="State"
-            />
+
+            <select id="state" name="state" onChange={handleChange}>
+              <option>Select State</option>
+              {states &&
+                states.map((state) => (
+                  <option key={state} value={state}>
+                    {state}
+                  </option>
+                ))}
+            </select>
+
+            <select name="city" id="city" onChange={handleChange}>
+              <option>Select City</option>
+              {areaData
+                .filter((area) => area.State === data.state)
+                .map(({ City }) => (
+                  <option key={City} value={City}>
+                    {City}
+                  </option>
+                ))}
+            </select>
           </div>
         </div>
         <div>
