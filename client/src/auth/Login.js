@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import './Login.css'
+import Logo from './Logo.png'
 
 const Login = () => {
   const navigate = useNavigate();
@@ -56,26 +58,35 @@ const Login = () => {
   };
 
   return (
-    <div>
-      {error && <p>{error}</p>}
-      <form>
-        <input
-          type="email"
-          value={data.email}
-          name="email"
-          onChange={handleChange}
-          placeholder="Enter your email"
-        />
-        <input
-          type="password"
-          value={data.password}
-          name="password"
-          onChange={handleChange}
-          placeholder="Enter your password"
-        />
-        <button onClick={handleLogin}>Login</button>
-      </form>
-    </div>
+    <section className="main">
+      <div className="inner">
+        <div>
+          <img src={Logo} />
+        </div>
+        <div className="right-form">
+          {error && <p>{error}</p>}
+          <form className="">
+            <input
+              type="email"
+              value={data.email}
+              name="email"
+              onChange={handleChange}
+              placeholder="Enter your email"
+            />
+            <input
+              type="password"
+              value={data.password}
+              name="password"
+              onChange={handleChange}
+              placeholder="Enter your password"
+            />
+            <p>Forgot password ?</p>
+            <button onClick={handleLogin}>Login</button>
+            <p>Don't have an account? <span>Create an account</span></p>
+          </form>
+        </div>
+      </div>
+    </section>
   );
 };
 

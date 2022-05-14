@@ -1,0 +1,23 @@
+.main{
+    min-height: 100vh;
+    background-color: #437FC7;
+    padding: 10vh 0;
+}
+.inner{
+    min-height: 80vh;
+    width: 90vw;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+
+}
+.inner div{
+    flex: 1; 
+}
+.inner img{
+    height: 566px;
+    width: 456px;
+}
