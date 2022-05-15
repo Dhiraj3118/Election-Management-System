@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import Dashboard from "./user/Dashboard";
-import { BLORoute, UnauthRoute, UserRoute } from "./AuthRoutes";
+import { BLORoute, RORoute, UnauthRoute, UserRoute } from "./AuthRoutes";
 import Home from "./Home";
 import ApplyCandidature from "./user/ApplyCandidature";
 import ErrorPage from "./ErrorPage";
@@ -83,9 +83,9 @@ function App() {
         <Route
           path="/r"
           element={
-            <BLORoute>
+            <RORoute>
               <RO />
-            </BLORoute>
+            </RORoute>
           }
           exact
         />

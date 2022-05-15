@@ -1,0 +1,50 @@
+/* .cid{
+    background-color: #EDF6FF;
+} */
+.nameparty{
+    display : flex;
+    flex-direction: column;
+}
+
+#party{
+  color: grey;
+}
+.cid{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    background-color: #EDF6FF;
+    text-align: center;
+    align-items: center;
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    height: 70px;
+    text-shadow: black;
+    box-shadow: 1px 1px 0px black;
+}
+
+.np{
+    margin-left: 70px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.Button{
+    height : 30px;
+    width : 100px;
+    color : black;
+    border:none;
+    align-items: center;
+    text-align: center;
+    margin-right: 70px;
+    background-color: #6DAFFE;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    border : none;
+    box-shadow: 1px 1px 0px black;
+    /* margin-left: 1rem; */
+}

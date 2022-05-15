@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import './election.css'
 const Election = () => {
   const params = useParams();
   const electionId = params.electionId;
@@ -62,13 +62,15 @@ const Election = () => {
       {loading && <p>Loading...</p>}
       {candidates &&
         candidates.map((c) => (
-          <div key={c.id}>
-            <p>{c.name}</p>
-            <p>{c.party}</p>
-            <p>
-              {c.candArea}, {c.candState}
-            </p>
-            <button onClick={(e) => voteCandidate(e, c.id)}>Vote</button>
+          <div className = "cid" key={c.id}>
+            <div className="nameparty">   
+              <p className = "np">{c.name}</p>
+              <p className = "np" id = "party">{c.party}</p>
+            </div>
+              <p className = "area">
+                {c.candArea}, {c.candState}
+              </p>
+            <button className = "Button" onClick={(e) => voteCandidate(e, c.id)}>+ VOTE</button>
           </div>
         ))}
     </div>
