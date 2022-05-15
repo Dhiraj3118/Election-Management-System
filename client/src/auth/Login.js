@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './Login.css'
 import Logo from './Logo.png'
+import hide from './hide.png'
 
 const Login = () => {
   const navigate = useNavigate();
@@ -59,6 +60,7 @@ const Login = () => {
   };
 
   return (
+
     <section className="main">
       <div className="inner">
         <div>
@@ -67,6 +69,7 @@ const Login = () => {
         <div className="right-form">
           {error && <p>{error}</p>}
           <form className="">
+            <h1>Login</h1>
             <input
               type="email"
               value={data.email}
@@ -74,16 +77,21 @@ const Login = () => {
               onChange={handleChange}
               placeholder="Enter your email"
             />
-            <input
-              type="password"
-              value={data.password}
-              name="password"
-              onChange={handleChange}
-              placeholder="Enter your password"
-            />
-            <p>Forgot password ?</p>
-            <button onClick={handleLogin}>Login</button>
-            <p>Don't have an account? <span>Create an account</span></p>
+            <div className="inputDiv">
+              <input
+                type="password"
+                value={data.password}
+                name="password"
+                onChange={handleChange}
+                placeholder="Enter your password"
+              />
+              <span className="eye">
+                <img src={hide} alt="eye" />
+              </span>
+            </div>
+            <a href="#">Forgot password ?</a>
+            <button className="loginBtn" onClick={handleLogin}>Login</button>
+            <p>Don't have an account? <a href='#'>Create an account</a></p>
           </form>
         </div>
       </div>

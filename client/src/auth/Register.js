@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import './Register.css'
+import hide from './hide.png'
 
 const Register = () => {
   const navigate = useNavigate();
@@ -80,12 +82,23 @@ const Register = () => {
   }, []);
 
   return (
-    <div>
+    <div className="main-Reg">
       {error && <p>{error}</p>}
+      <div className="navbar">
+        <p>Voter Registration Form</p>
+      </div>
       <form>
-        <div>
-          <div>Your Name</div>
-          <div>
+        <div className="Name">
+          <div className="Name-1-field">
+            <p>Name</p>
+            <p id="det-name">Giva a full name</p>
+          </div>
+          <div className="Name-2-field">
+            <div>
+              <p>1</p>
+            </div>
+          </div>
+          <div className="Name-3-field">
             <input
               type="text"
               name="fname"
@@ -109,9 +122,16 @@ const Register = () => {
             />
           </div>
         </div>
-        <div>
-          <div>Personal Details</div>
-          <div>
+        <br />
+        <hr />
+        <div className="Details">
+          <div className="det-1-field">
+            <p>Personal <br /> Details</p>
+          </div>
+          <div className="det-2-field">
+            <p>2</p>
+          </div>
+          <div className="det-3-field">
             <input
               type="text"
               name="fatherName"
@@ -135,79 +155,114 @@ const Register = () => {
             />
           </div>
         </div>
-        <div>
-          <div>Identification</div>
-          <div>
-            <label htmlFor="date">Date of birth: </label>
-            <input
-              type="date"
-              name="dob"
-              value={data.dob}
-              onChange={handleChange}
-              id="date"
-            />
-            <label>Gender:</label>
-            <input
-              type="radio"
-              name="gender"
-              value="Male"
-              id="male"
-              onClick={handleChange}
-            />
-            <label htmlFor="male">Male</label>
-            <input
-              type="radio"
-              name="gender"
-              value="Female"
-              id="female"
-              onClick={handleChange}
-            />
-            <label htmlFor="female">Female</label>
+        <br />
+        <hr />
+        <div className="Identity">
+          <div className="iden-1-field">
+            <p>Identification</p>
+            <p id="det-identity">provide your <br /> birthdate and <br /> gender</p>
+          </div>
+          <div className="iden-2-field">
+            <p>3</p>
+          </div>
+          <div className="iden-3-field">
+            <div className="dob">
+              <label htmlFor="date" className="dob-1">Date of birth : </label>
+              <input className="dob-2"
+                type="date"
+                name="dob"
+                value={data.dob}
+                onChange={handleChange}
+                id="date"
+              />
+            </div>
+            <div className="gender">
+              <div className="gen-1">
+                <label> Gender :</label>
+              </div>
+              <div className="gen-2">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Male"
+                  id="male"
+                  onClick={handleChange}
+                />
+                <label htmlFor="male">Male</label>
+              </div>
+              <div className="gen-3">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Female"
+                  id="female"
+                  onClick={handleChange}
+                />
+                <label htmlFor="female">Female</label>
+              </div>
+            </div>
           </div>
         </div>
-        <div>
-          <div>Address where you live</div>
-          <div>
-            <textarea
+        <br />
+        <hr />
+        <div className="Address">
+          <div className="adr-1-field">
+            <p>Address</p>
+            <p id="det-adr">where you live</p>
+          </div>
+          <div className="adr-2-field">
+            <p>4</p>
+          </div>
+          <div className="adr-3-field">
+            <textarea className="adr-1"
               name="address"
               value={data.address}
               onChange={handleChange}
               placeholder="Your Address"
             ></textarea>
 
-            <input
-              type="number"
-              name="pincode"
-              value={data.pincode}
-              onChange={handleChange}
-              placeholder="Pincode"
-            />
+            <div className="adr-2">
+              <input id="pin-code"
+                type="number"
+                name="pincode"
+                value={data.pincode}
+                onChange={handleChange}
+                placeholder="Pincode"
+              />
 
-            <select id="state" name="state" onChange={handleChange}>
-              <option>Select State</option>
-              {states &&
-                states.map((state) => (
-                  <option key={state} value={state}>
-                    {state}
-                  </option>
-                ))}
-            </select>
+              <select id="state" name="state" onChange={handleChange}>
+                <option>Select State</option>
+                {states &&
+                  states.map((state) => (
+                    <option key={state} value={state}>
+                      {state}
+                    </option>
+                  ))}
+              </select>
 
-            <select name="city" id="city" onChange={handleChange}>
-              <option>Select City</option>
-              {areaData
-                .filter((area) => area.State === data.state)
-                .map(({ City }) => (
-                  <option key={City} value={City}>
-                    {City}
-                  </option>
-                ))}
-            </select>
+              <select name="city" id="city" onChange={handleChange}>
+                <option>Select City</option>
+                {areaData
+                  .filter((area) => area.State === data.state)
+                  .map(({ City }) => (
+                    <option key={City} value={City}>
+                      {City}
+                    </option>
+                  ))}
+              </select>
+            </div>
           </div>
         </div>
-        <div>
-          <div>Authenticate Yourself</div>
-          <div>
+        <br />
+        <hr />
+        <div className="Auth">
+          <div className="Auth-1-field">
+            <p>Authenticate <br /> Yourself</p>
+          </div>
+          <div className="Auth-2-field">
+            <p>5</p>
+          </div>
+          <div className="Auth-3-field">
             <input
               type="email"
               name="email"
@@ -215,17 +270,23 @@ const Register = () => {
               onChange={handleChange}
               placeholder="Your Email"
             />
-            <input
+            <input className="password"
               type="password"
               name="password"
               value={data.password}
               onChange={handleChange}
               placeholder="Password"
             />
+            <button className="eye_form">
+              <img src={hide} alt="eye" />
+            </button>
           </div>
         </div>
-        <div>
-          <input
+        <br />
+        <hr />
+        <br />
+        <div className="checkbox">
+          <input className="check"
             type="checkbox"
             name="accept"
             id="accept"
@@ -233,10 +294,10 @@ const Register = () => {
             onChange={() => setAccept(!accept)}
           />
           <label htmlFor="accept">
-            I've read and accepted the terms and conditions*
+            I've read and accepted the <span>terms and conditions*</span>
           </label>
         </div>
-        <button onClick={register} disabled={!accept}>
+        <button onClick={register} disabled={!accept} className="Regbtn">
           Register
         </button>
       </form>
