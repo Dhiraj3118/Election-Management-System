@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import './Dashboard.css'
 const Dashboard = () => {
   const [electionList, setElectionList] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -24,9 +24,9 @@ const Dashboard = () => {
     setLoading(false);
   }, []);
   return (
-    <div>
-      <h1>Current Elections List</h1>
-      <div>
+    <div className="main">
+      <h1 className="title">Current Elections List</h1>
+      <div id = "bg">
         {error && <p>{error}</p>}
         {loading && <p>Loading...</p>}
         {!loading && electionList === [] && (
@@ -35,12 +35,13 @@ const Dashboard = () => {
         {!loading &&
           electionList &&
           electionList.map((election) => (
-            <div key={election.id}>
-              <p>{election.name}</p>
-              <p>Date: {election.startDate}</p>
-              <Link to={"/e/" + election.id}>View</Link>
+            <div className="detail" key={election.id}>
+              <p className="ename">  Election name: {election.name}</p>
+              <p className="date"> Date: {election.startDate}</p>
+              <button className = "button"><Link className = "link" to={"/e/" + election.id}>View</Link></button>
             </div>
           ))}
+          
       </div>
     </div>
   );

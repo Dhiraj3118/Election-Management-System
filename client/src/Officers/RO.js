@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import './RO.css'
 const RO = () => {
   const [candidates, setCandidates] = useState([]);
 
@@ -15,7 +15,10 @@ const RO = () => {
       },
     })
       .then((res) => res.json())
-      .then((data) => setCandidates(data.data))
+      .then((data) => { 
+        console.log(data)
+        setCandidates(data.data) 
+      })
       .catch((error) => console.log(error));
   }, []);
 
@@ -40,16 +43,22 @@ const RO = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div>
-      {candidates.map((voter) => (
-        <div key={voter.id}>
-          <p>Name: {voter.name}</p>
-          <p>Party: {voter.party}</p>
-          <button onClick={() => approveCandidate(voter.id)}>
-            Approve Candidate
-          </button>
-        </div>
-      ))}
+    <div className = "canbg">
+      <div className = "cantitle"> <p>Approve Candidate</p> </div>
+      <div className = "Alldetails">
+        {candidates.map((cand) => (
+          
+            <div className = "canDetails" key={cand.id}> 
+                <p className="canName">Name: {cand.name}</p>
+                <p className = "canParty">Party: {cand.party}</p>
+                <p className = "canArea"> Area: {cand.candCity} , {cand.candState}</p>
+                <button className = "AprCan" onClick={() => approveCandidate(cand.id)}>
+                  Approve Candidate
+                </button>
+            </div>
+        ))}
+      </div>
+      
     </div>
   );
 };

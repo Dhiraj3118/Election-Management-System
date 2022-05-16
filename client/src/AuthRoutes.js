@@ -16,24 +16,24 @@ const UserRoute = ({ children }) => {
 const CandidateRoute = ({ children }) => {
   const data = JSON.parse(localStorage.getItem("election-data"));
 
-  return data.role === 1 ? children : <Navigate to="/u/dashboard" />;
+  return data && data.role === 1 ? children : <Navigate to="/u/dashboard" />;
 };
 
 const BLORoute = ({ children }) => {
   const data = JSON.parse(localStorage.getItem("election-data"));
-  return data.role === 2 ? children : <Navigate to="/u/dashboard" />;
+  return data && data.role === 2 ? children : <Navigate to="/u/dashboard" />;
 };
 
 const RORoute = ({ children }) => {
   const data = JSON.parse(localStorage.getItem("election-data"));
 
-  return data.role === 3 ? children : <Navigate to="/u/dashboard" />;
+  return data && data.role === 3 ? children : <Navigate to="/u/dashboard" />;
 };
 
 const AdminRoute = ({ children }) => {
   const data = JSON.parse(localStorage.getItem("election-data"));
 
-  return data.role === 4 ? children : <Navigate to="/u/dashboard" />;
+  return data && data.role === 4 ? children : <Navigate to="/u/dashboard" />;
 };
 
 export {
