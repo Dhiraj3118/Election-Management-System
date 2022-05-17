@@ -32,7 +32,7 @@ const RORoute = ({ children }) => {
 
 const AdminRoute = ({ children }) => {
   const data = JSON.parse(localStorage.getItem("election-data"));
-  console.log(data);
+
   return data && data.role === 4 ? children : <Navigate to="/u/dashboard" />;
 };
 

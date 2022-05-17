@@ -4,22 +4,18 @@ const {
   where,
   updateDoc,
   doc,
+  query,
 } = require("firebase/firestore");
 const { db } = require("../firebase");
 
 exports.getVotersList = async (req, res) => {
   try {
-    const docSnap = await getDocs(
-      collection(db, "Voters"),
-      where("city", "==", req.params.city)
-    );
+    const docSnap = await getDocs(collection(db, "Voters"));
 
     const data = [];
 
     docSnap.forEach((doc) => {
-      if (doc.data().city == req.params.city) {
-        data.push({ id: doc.id, ...doc.data() });
-      }
+      data.push({ id: doc.id, ...doc.data() });
     });
 
     return res.status(200).json({

@@ -1,55 +1,55 @@
-.electionPage{
-    background-color: #437FC7;
-    min-height: 100vh;
+.electionPage {
+  background-color: #437fc7;
+  /* min-height: 100vh; */
 }
-.createDiv{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.createDiv h1{
-    margin: 3rem 0;
-    color: #fff;
-    font-size: 2.5rem;
+.createDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.createDiv .electionForm{
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 4rem 3rem;
-    box-shadow: 5px 10px 10px rgba(0,0,0,0.5);
+.createDiv h1 {
+  margin: 2rem 0;
+  color: #fff;
+  font-size: 2.5rem;
 }
 
-.electionForm div{
-    display: flex;
-    margin-bottom: 2rem;
+.createDiv .electionForm {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 3rem;
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.5);
 }
 
-.electionForm label{
-    display: block;
-    width: 12rem;
-    font-weight: bold;
-    margin: 0;
-    padding: 8px 12px;
-    font-size: 1.2rem;
+.electionForm div {
+  display: flex;
+  margin-bottom: 2rem;
 }
 
-.electionForm input{
-    width: 20rem;
-    padding: 8px 12px;
-    margin: 0;
-    border: none;
-    border-bottom: 2px solid #000;
-    outline: none;
-    font-size: 1rem;
+.electionForm label {
+  display: block;
+  width: 12rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 8px 12px;
+  font-size: 1.2rem;
 }
 
-.electionForm button{
-    margin: auto;
-    width: 20rem;
-    margin-top: 1rem;
+.electionForm input {
+  width: 20rem;
+  padding: 8px 12px;
+  margin: 0;
+  border: none;
+  border-bottom: 2px solid #000;
+  outline: none;
+  font-size: 1rem;
+}
+
+.electionForm button {
+  margin: auto;
+  width: 20rem;
+  margin-top: 1rem;
 }

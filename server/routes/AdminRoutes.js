@@ -16,7 +16,7 @@ router.put("/assign-role", isAdmin, checkBody, assignRoles);
 
 router.get("/get-stats", isAdmin, checkBody, getStats);
 
-router.put("/declare-results", isAdmin, checkBody, declareResults);
+router.put("/declare-results", isAdmin, declareResults);
 
 router.post("/add-area", isAdmin, checkBody, addArea);
 

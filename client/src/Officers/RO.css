@@ -1,62 +1,51 @@
-
-.canbg{
-    background-color: #437FC7;
-    /* display: flex; */
-    
+.canbg {
+  background-color: #437fc7;
 }
 
-.Alldetails{
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-    
+.Alldetails {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.cantitle{
-    text-align: center;
-    color: white;
-    font-size: 1.8rem;
-    padding: 0.1rem;
-    /* margin-top: 20px; */
+.cantitle {
+  text-align: center;
+  color: white;
+  font-size: 1.8rem;
+  padding: 0.1rem;
+  margin: 1rem 0;
 }
-.canDetails{    
-    display: flex;
-    flex-direction: column;
-    width : 350px;
-    height: auto;
-    background-color:#EDF6FF;
-    border-radius: 10px;
-    margin: 2rem;
-    text-shadow: 0px 0px 0.5px black;
-    box-shadow: 1px 1px 0px black;
-
+.canDetails {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: auto;
+  background-color: #edf6ff;
+  border-radius: 10px;
+  margin: 2rem;
+  padding: 1rem 2rem;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
-.canArea{
-    margin-left: 20px;
-    /* margin-top: 10px; */
-    margin-top: 5px;
-    margin-bottom: 10px;
+.canArea {
+  margin-bottom: 1.5rem;
 }
-.canParty{
-    margin-left: 20px;
-    margin-top: 10px;
-    margin-bottom: 0px;
+.canParty {
+  margin-bottom: 1rem;
 }
-.canName{
-    text-align: center;
-    margin-bottom: 10px;
+.canName {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
 }
 
-.AprCan{
-    height : 30px;
-    width : 150px;
-    border: none;
-    margin-left: 150px;
-    margin-bottom: 20px;
-    text-align: center;
-    background-color: #6DAFFE;
-    border-radius: 5px;
-    cursor: pointer;
-    text-shadow: 0px 0px 0.5px black;
-    box-shadow: 1px 1px 0px black;
+.AprCan {
+  height: 30px;
+  width: 150px;
+  border: none;
+  margin: auto;
+  text-align: center;
+  background-color: #6daffe;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }

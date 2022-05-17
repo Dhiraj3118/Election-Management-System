@@ -3,11 +3,13 @@ import Navbar from "../Navbar";
 import "./Admin.css";
 const Admin = () => {
   const [election, setElection] = useState({
-    startDate: Date.now(),
-    endDate: Date.now(),
+    startDate: "",
+    endDate: "",
     name: "",
     state: "",
   });
+
+  const [success, setSuccess] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,6 +34,13 @@ const Admin = () => {
       .then((data) => {
         if (data.success) {
           console.log("Election created successfully");
+          setSuccess("Election created successfully");
+          setElection({
+            startDate: "",
+            endDate: "",
+            name: "",
+            state: "",
+          });
         }
       })
       .catch((error) => console.log(error));
@@ -43,6 +52,7 @@ const Admin = () => {
       <div className="electionPage">
         <div className="createDiv">
           <h1>Create Election</h1>
+          {success && <p className="success">{success}</p>}
           <form className="electionForm">
             <div>
               <label htmlFor="name">Election Name</label>

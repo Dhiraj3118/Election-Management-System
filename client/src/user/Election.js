@@ -9,6 +9,7 @@ const Election = () => {
   const [candidates, setCandidates] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [voted, setVoted] = useState("");
 
   useEffect(() => {
     fetch(
@@ -18,12 +19,32 @@ const Election = () => {
       .then((data) => {
         if (data.success) {
           // console.log(data.data);
+          setLoading(false);
           setCandidates(data.data);
         } else {
           setError(data.msg);
+          setLoading(false);
         }
       });
-    setLoading(false);
+
+    const ls = JSON.parse(localStorage.getItem("election-data"));
+    const data = {
+      electionId: electionId,
+      voterId: ls.id,
+    };
+
+    fetch("http://localhost:5000/election/voted", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + ls.id,
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setVoted(data.data[0]);
+      });
   }, [electionId]);
 
   const voteCandidate = (e, candId) => {
@@ -62,9 +83,12 @@ const Election = () => {
     <>
       <Navbar />
       <div className="dashboard">
-        <h1>Candidates</h1>
+        <h1>List of Candidates</h1>
         {error && <p>{error}</p>}
-        {loading && <p>Loading...</p>}
+        {loading && <p className="success">Loading...</p>}
+        {!loading && candidates.length == 0 && (
+          <p className="success">No candidates</p>
+        )}
         {candidates &&
           candidates.map((c) => (
             <div className="cid" key={c.id}>
@@ -80,8 +104,9 @@ const Election = () => {
               <button
                 className="Button"
                 onClick={(e) => voteCandidate(e, c.id)}
+                disabled={voted != ""}
               >
-                + VOTE
+                {voted == c.id ? "Voted" : "Vote"}
               </button>
             </div>
           ))}

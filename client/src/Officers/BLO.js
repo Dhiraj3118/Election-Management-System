@@ -20,7 +20,7 @@ const BLO = () => {
       .catch((error) => console.log(error));
   }, []);
 
-  const verifyVoter = (id) => {
+  const verifyVoter = (e, id) => {
     const ls = JSON.parse(localStorage.getItem("election-data"));
     console.log("Verifying Voter...");
 
@@ -35,9 +35,10 @@ const BLO = () => {
       body: JSON.stringify(body),
     })
       .then((res) => res.json())
-      .then(
-        (data) => data.success && console.log("Voter Verified Successfully")
-      )
+      .then((data) => {
+        e.target.textContent = "Verified";
+        data.success && console.log("Voter Verified Successfully");
+      })
       .catch((error) => console.log(error));
   };
   return (
@@ -51,13 +52,15 @@ const BLO = () => {
         <div className="voterAllDetails">
           {voters.map((voter) => (
             <div className="voterDetail" key={voter.id}>
-              <p className="vname">Name: {voter.name}</p>
+              <p className="vname">{voter.name}</p>
               <p className="vaddress">Address: {voter.address}</p>
+              <p className="vaddress">City: {voter.city}</p>
+              <p className="vaddress">Mobile: {voter.mobileNo}</p>
               <button
                 className="voteButton"
-                onClick={() => verifyVoter(voter.id)}
+                onClick={(e) => verifyVoter(e, voter.id)}
               >
-                Verify Voter
+                {voter.verified ? "Verified" : "Verify Voter"}
               </button>
             </div>
           ))}

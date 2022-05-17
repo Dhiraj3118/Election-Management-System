@@ -37,7 +37,7 @@ const ApplyCandidature = () => {
 
     const ls = JSON.parse(localStorage.getItem("election-data"));
     setData({ ...data, name: ls.name, electionId: params.electionId });
-    console.log("Applying...");
+    console.log("Applying...", data);
 
     fetch("http://localhost:5000/candidate/apply", {
       method: "POST",
@@ -51,7 +51,6 @@ const ApplyCandidature = () => {
       .then((data) => {
         if (data.success) {
           console.log("Applied Successfully");
-
           setSuccess("Applied Successfully");
           setError("");
         } else {
@@ -82,7 +81,7 @@ const ApplyCandidature = () => {
       <Navbar />
       <div className="main-cand">
         {error && <p>{error}</p>}
-        {success && <p>{success}</p>}
+        {success && <p className="success">{success}</p>}
         <div className="navbar-cand">
           <p>Candidate Registration Form</p>
         </div>

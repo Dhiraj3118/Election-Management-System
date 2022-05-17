@@ -55,8 +55,6 @@ exports.getElectionCandidates = async (req, res) => {
       data.push({ id: doc.id, ...doc.data() });
     });
 
-    console.log(data);
-
     return res.status(200).json({
       success: true,
       msg: "Candidates list fetched successfully",
@@ -140,6 +138,34 @@ exports.getResultsForUser = async (req, res) => {
     return res.status(401).json({
       success: false,
       msg: "Results not declared still",
+    });
+  } catch (error) {
+    console.log(error);
+
+    return res.status(500).json({
+      success: false,
+      error,
+      msg: "Error in fetching data",
+    });
+  }
+};
+exports.checkVoted = async (req, res) => {
+  const { voterId, electionId } = req.body;
+
+  try {
+    const docs = await getDocs(
+      query(
+        collection(db, "Votes"),
+        where("electionId", "==", electionId),
+        where("voterId", "==", voterId)
+      )
+    );
+
+    const data = [];
+    docs.forEach((doc) => data.push(doc.data().candidateId));
+    return res.status(200).json({
+      success: true,
+      data,
     });
   } catch (error) {
     console.log(error);

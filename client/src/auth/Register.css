@@ -1,327 +1,332 @@
 .main-Reg {
-    height: 0vh;
-    padding: 0;
-    margin: 0;
-    background-color: white;
+  height: 0vh;
+  padding: 0;
+  margin: 0;
+}
+
+.main-Reg form {
+  background-color: #fff;
 }
 
 .regTitle {
-    background-color: #437fc7;
-    text-align: center;
-    color: white;
-    height: 3rem;
-    font-size: 2rem;
+  background-color: #437fc7;
+  text-align: center;
+  color: white;
+  height: 3rem;
+  font-size: 2rem;
 }
 
 .Name-1-field {
-    display: flex;
-    flex-direction: column;
-    margin: 1rem;
-    padding: 0.5rem;
-    font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
 }
 
 .Name-1-field #det-name {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .Name-2-field {
-    width: 11vh;
-    height: 13vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #437fc7;
-    border-radius: 7px;
-    margin: 1rem 0 0 3.2rem;
-    color: white;
+  width: 11vh;
+  height: 13vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #437fc7;
+  border-radius: 7px;
+  margin: 1rem 0 0 3.2rem;
+  color: white;
 }
 
 .Name-3-field {
-    display: flex;
-    flex-direction: column;
-    margin: 0.5rem 0 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0 0 1.5rem;
 }
 
 .Name-3-field input {
-    margin: 0.3rem;
-    padding: 0.1rem;
-    width: 120vh;
-    border: none;
-    border-bottom: 2px solid #000;
+  margin: 0.3rem;
+  padding: 0.1rem;
+  width: 120vh;
+  border: none;
+  border-bottom: 2px solid #000;
 }
 
 .Name {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .Details {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .det-1-field {
-    margin: 1rem;
-    padding: 0.5rem;
-    font-size: 1.5rem;
+  margin: 1rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
 }
 
 .det-2-field {
-    width: 11vh;
-    height: 14vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #437fc7;
-    border-radius: 7px;
-    margin: 1rem 0 0 4.7rem;
-    color: white;
+  width: 11vh;
+  height: 14vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #437fc7;
+  border-radius: 7px;
+  margin: 1rem 0 0 4.7rem;
+  color: white;
 }
 
 .det-3-field {
-    display: flex;
-    flex-direction: column;
-    margin: 0.5rem 0 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0 0 1.5rem;
 }
 
 .det-3-field input {
-    margin: 0.3rem;
-    padding: 0.1rem;
-    width: 120vh;
-    border: none;
-    border-bottom: 2px solid #000;
+  margin: 0.3rem;
+  padding: 0.1rem;
+  width: 120vh;
+  border: none;
+  border-bottom: 2px solid #000;
 }
 
 .Identity {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .iden-1-field {
-    display: flex;
-    flex-direction: column;
-    margin: 1rem;
-    padding: 0.5rem;
-    font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
 }
 
 .iden-1-field #det-identity {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .iden-2-field {
-    width: 11vh;
-    height: 16vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #437fc7;
-    border-radius: 7px;
-    margin: 1rem 0 0 1.7rem;
-    color: white;
+  width: 11vh;
+  height: 16vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #437fc7;
+  border-radius: 7px;
+  margin: 1rem 0 0 1.7rem;
+  color: white;
 }
 
 .iden-3-field {
-    display: flex;
-    flex-direction: column;
-    margin: 1.5rem 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem 0 0 2rem;
 }
 
 .iden-3-field .dob {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .iden-3-field .dob-1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
 }
 
 .iden-3-field .dob-2 {
-    width: 22vh;
-    border: 1.5px solid #000
+  border: 1.5px solid #000;
 }
 
 .iden-3-field .gender {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
+}
+
+.gender label {
+  margin: 0;
 }
 
 .iden-3-field .gen-1 {
-    width: 5rem;
+  width: 5rem;
 }
 
 .iden-3-field .gen-2 {
-    width: 5rem;
+  width: 5rem;
 }
 
 .iden-3-field .gen-3 {
-    width: 7rem;
+  width: 7rem;
 }
 
 .iden-3-field input {
-    margin: 0.3rem;
-    padding: 0.1rem;
-    border: none;
-    border-bottom: 2px solid #000;
+  margin: 0.3rem;
+  padding: 0.1rem;
+  border: none;
+  border-bottom: 2px solid #000;
 }
 
 .Address {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .adr-1-field {
-    display: flex;
-    flex-direction: column;
-    margin: 1rem;
-    padding: 0.5rem;
-    font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
 }
 
 .adr-1-field #det-adr {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .adr-2-field {
-    width: 11vh;
-    height: 20vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #437fc7;
-    border-radius: 7px;
-    margin: 1rem 0 0 3.8rem;
-    color: white;
+  width: 11vh;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #437fc7;
+  border-radius: 7px;
+  margin: 1rem 0 0 3.8rem;
+  color: white;
 }
 
 .adr-3-field {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .adr-3-field .adr-1 {
-    margin: 1.8rem 0 0 2rem;
-    padding: 0.1rem;
-    width: 120vh;
-    height: 11vh;
-    border: 2px solid #000;
+  margin: 1.8rem 0 0 2rem;
+  padding: 0.1rem;
+  width: 120vh;
+  height: 11vh;
+  border: 2px solid #000;
 }
 
 .adr-3-field .adr-2 {
-    margin: 0.3rem 0 0 1.9rem;
-    padding: 0.1rem;
-    width: 120vh;
+  margin: 0.3rem 0 0 1.9rem;
+  padding: 0.1rem;
+  width: 120vh;
 }
 
 .adr-3-field .adr-2 #pin-code {
-    margin: 0 2.5rem 0 0;
-    border: none;
-    border-bottom: 2px solid #000;
+  margin: 0 2.5rem 0 0;
+  border: none;
+  border-bottom: 2px solid #000;
 }
 
 .adr-3-field .adr-2 #state {
-    margin: 0 1.5rem 0 0;
-    -webkit-border-radius: none;
+  margin: 0 1.5rem 0 0;
 }
 
 .adr-3-field .adr-2 #city {
-    margin: 0 1.5rem 0 0;
+  margin: 0 1.5rem 0 0;
 }
 
 .Auth {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .Auth-1-field {
-    display: flex;
-    flex-direction: column;
-    margin: 1rem;
-    padding: 0.5rem;
-    font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
 }
 
 .Auth-2-field {
-    width: 11vh;
-    height: 12vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #437fc7;
-    border-radius: 7px;
-    margin: 1rem 0 0 2.1rem;
-    color: white;
+  width: 11vh;
+  height: 12vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #437fc7;
+  border-radius: 7px;
+  margin: 1rem 0 0 2.1rem;
+  color: white;
 }
 
 .Auth-3-field {
-    display: flex;
-    flex-direction: column;
-    margin: 1.5rem 0 0 1.5rem;
-
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem 0 0 1.5rem;
 }
 
 .Auth-3-field input {
-    margin: 0.3rem;
-    padding: 0.1rem;
-    width: 50vh;
-    border: none;
-    border-bottom: 2px solid #000;
+  margin: 0.3rem;
+  padding: 0.1rem;
+  width: 50vh;
+  border: none;
+  border-bottom: 2px solid #000;
 }
 
 .Auth-3-field {
-    position: relative;
+  position: relative;
 }
 
 .Auth-3-field .eye_form {
-    background-color: transparent;
-    border: none;
-    position: absolute;
-    left: 21rem;
-    top: 2.3rem;
-    cursor: pointer;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  left: 21rem;
+  top: 2.3rem;
+  cursor: pointer;
 }
 
 .Auth-3-field .eye_form img {
-    height: 1rem;
-    width: 1rem;
+  height: 1rem;
+  width: 1rem;
 }
 
 .checkbox {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .checkbox .check {
-    margin: 0 1rem 0 0;
+  margin: 0 1rem 0 0;
 }
 
 .checkbox span {
-    color: red;
+  color: red;
 }
 
 .Regbtn {
-    margin: 1rem 0 1rem 34.2rem;
-    padding: 0.5rem;
-    width: 26rem;
-    cursor: pointer;
-    transition: 0.8s;
-    font-family: 'Inter', sans-serif;
-
-    background-color: white;
-    color: #437fc7;
-    border-radius: 10px;
-    border: 2px solid #437fc7;
-    background-image: linear-gradient(to right, transparent 50%, #437fc7 50%);
-    background-size: 200%;
-    background-position: 0%;
+  display: block;
+  margin: 1rem auto;
+  padding: 0.5rem;
+  width: 26rem;
+  cursor: pointer;
+  transition: 0.8s;
+  font-family: "Inter", sans-serif;
+  background-color: white;
+  color: #437fc7;
+  border-radius: 10px;
+  border: 2px solid #437fc7;
+  background-image: linear-gradient(to right, transparent 50%, #437fc7 50%);
+  background-size: 200%;
+  background-position: 0%;
 }
 
 .Regbtn:hover {
-    color: white;
-    background-position: 99.82% 180%;
+  color: white;
+  background-position: 99.82% 180%;
 }

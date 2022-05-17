@@ -102,7 +102,8 @@ exports.getStats = async (req, res) => {
   }
 };
 exports.declareResults = async (req, res) => {
-  const { electionId } = req.body;
+  const { electionId } = req.query;
+
   try {
     await updateDoc(doc(db, "Elections", electionId), {
       declared: true,

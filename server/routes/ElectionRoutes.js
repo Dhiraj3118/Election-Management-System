@@ -4,6 +4,7 @@ const {
   getElectionCandidates,
   castVote,
   getResultsForUser,
+  checkVoted,
 } = require("../controllers/Election");
 const { isVerified } = require("../middlewares/Auth");
 const { checkBody, getState } = require("../middlewares/General");
@@ -16,5 +17,7 @@ router.get("/election-candidates", getElectionCandidates);
 router.post("/cast-vote", isVerified, checkBody, castVote);
 
 router.get("/get-results", isVerified, checkBody, getResultsForUser);
+
+router.post("/voted", checkVoted);
 
 module.exports = router;

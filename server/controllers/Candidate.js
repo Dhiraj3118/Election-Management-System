@@ -11,6 +11,7 @@ const { db } = require("../firebase");
 exports.uploadCandidature = async (req, res) => {};
 
 exports.applyCandidature = async (req, res) => {
+  console.log(req.body);
   try {
     const docRef = await setDoc(doc(db, "Candidates", req.params.id), {
       ...req.body,

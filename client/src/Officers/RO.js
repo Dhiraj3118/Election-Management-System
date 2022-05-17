@@ -3,6 +3,7 @@ import Navbar from "../Navbar";
 import "./RO.css";
 const RO = () => {
   const [candidates, setCandidates] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const ls = JSON.parse(localStorage.getItem("election-data"));
@@ -19,11 +20,12 @@ const RO = () => {
       .then((data) => {
         console.log(data);
         setCandidates(data.data);
+        setLoading(false);
       })
       .catch((error) => console.log(error));
   }, []);
 
-  const approveCandidate = (id) => {
+  const approveCandidate = (e, id) => {
     const ls = JSON.parse(localStorage.getItem("election-data"));
     console.log("Approving Candidate...");
 
@@ -38,33 +40,34 @@ const RO = () => {
       body: JSON.stringify(body),
     })
       .then((res) => res.json())
-      .then(
-        (data) => data.success && console.log("Candidate Approved Successfully")
-      )
+      .then((data) => {
+        data.success && console.log("Candidate Approved Successfully");
+        e.target.textContent = "Approved";
+      })
       .catch((error) => console.log(error));
   };
+
   return (
     <>
       <Navbar />
       <div className="canbg">
         <div className="cantitle">
-          {" "}
-          <p>Approve Candidate</p>{" "}
+          <p>Approve Candidate</p>
         </div>
+        {loading && <p className="success">Loading...</p>}
         <div className="Alldetails">
           {candidates.map((cand) => (
             <div className="canDetails" key={cand.id}>
-              <p className="canName">Name: {cand.name}</p>
+              <p className="canName">{cand.name}</p>
               <p className="canParty">Party: {cand.party}</p>
               <p className="canArea">
-                {" "}
-                Area: {cand.candCity} , {cand.candState}
+                Area: {cand.candArea} , {cand.candState}
               </p>
               <button
                 className="AprCan"
-                onClick={() => approveCandidate(cand.id)}
+                onClick={(e) => approveCandidate(e, cand.id)}
               >
-                Approve Candidate
+                {cand.approved ? "Approved" : "Approve Candidate"}
               </button>
             </div>
           ))}

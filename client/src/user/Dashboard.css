@@ -9,6 +9,13 @@
   color: white;
 }
 
+.noElection {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  font-size: 2rem;
+}
+
 .detail {
   margin: 2rem;
   padding: 1.5rem 3rem;
@@ -25,11 +32,12 @@
   padding: 8px 24px;
   border: none;
   text-align: center;
-  margin-right: 50px;
+  margin-right: 1rem;
   background-color: #6daffe;
   border-radius: 5px;
   cursor: pointer;
-  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  color: #fff;
 }
 
 .button a {
