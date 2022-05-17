@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import './BLO.css'
+import Navbar from "../Navbar";
+import "./BLO.css";
 const BLO = () => {
   const [voters, setVoters] = useState([]);
 
@@ -40,19 +41,29 @@ const BLO = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="voterbg">
-      <div className = "votertitle"> <p>Verify Voter</p> </div>
-      <div className = "voterAllDetails">
+    <>
+      <Navbar />
+      <div className="voterbg">
+        <div className="votertitle">
+          {" "}
+          <p>Verify Voter</p>{" "}
+        </div>
+        <div className="voterAllDetails">
           {voters.map((voter) => (
-            <div className = "voterDetail" key={voter.id}>
+            <div className="voterDetail" key={voter.id}>
               <p className="vname">Name: {voter.name}</p>
               <p className="vaddress">Address: {voter.address}</p>
-              <button className = "voteButton"onClick={() => verifyVoter(voter.id)}>Verify Voter</button>
+              <button
+                className="voteButton"
+                onClick={() => verifyVoter(voter.id)}
+              >
+                Verify Voter
+              </button>
             </div>
           ))}
+        </div>
       </div>
-      
-    </div>
+    </>
   );
 };
 

@@ -65,7 +65,7 @@ exports.isRO = async (req, res, next) => {
 exports.isAdmin = async (req, res, next) => {
   const id = req.headers.authorization.substr(7);
   const docSnap = await getDoc(doc(db, "Voters", id));
-
+console.log(docSnap.data().role)
   if (docSnap.data().role != 4) {
     return res.status(401).json({
       success: false,

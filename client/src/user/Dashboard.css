@@ -1,49 +1,38 @@
-.main
-{
-    background-color: #437FC7;
-    padding : 40px;
+.dashboard {
+  background-color: #437fc7;
+  min-height: 90vh;
+  padding: 2rem;
+}
+.title {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: white;
 }
 
-.title{
-    text-align: center;
-    margin-top: 10px;
-    color: white;
-}
-.bg{
-    background-color:#6DAFFE;
-}
-
-.ename{
-   margin-left: 80px;
-}
-
-.detail{
-    margin-right: 20px; 
-    margin-left: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display : flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #EDF6FF;
-    border-radius: 10px;
-    height: 50px;
-    text-shadow: 0px 0px 0.5px black;
-    box-shadow: 1px 1px 0px black;
-    /* width : 1200px; */
+.detail {
+  margin: 2rem;
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #edf6ff;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.5);
 }
 
-.button{
-    height : 30px;
-    width : 100px;
-    /* color : black; */
-    border: none;
-    text-align: center;
-    margin-right: 50px;
-    background-color: #6DAFFE;
-    border-radius: 5px;
-    text-align: center;
-    /* margin-left : 1rem; */
-    cursor: pointer;
-    box-shadow: 1px 1px 0px black;
+.button {
+  padding: 8px 24px;
+  border: none;
+  text-align: center;
+  margin-right: 50px;
+  background-color: #6daffe;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.button a {
+  color: #fff;
+  text-decoration: none;
 }

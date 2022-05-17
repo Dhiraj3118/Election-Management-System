@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import './Login.css'
-import Logo from './Logo.png'
-import hide from './hide.png'
+import { Link, useNavigate } from "react-router-dom";
+import "./Login.css";
+import Logo from "./Logo.png";
+import hide from "./hide.png";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -12,12 +12,19 @@ const Login = () => {
   });
 
   const [error, setError] = useState("");
+  const [pswd, setPswd] = useState("password");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
     setData({ ...data, [name]: value });
     setError("");
+  };
+
+  const showPassword = (e) => {
+    e.preventDefault();
+    if (pswd == "password") setPswd("text");
+    else setPswd("password");
   };
 
   const handleLogin = (e) => {
@@ -60,11 +67,10 @@ const Login = () => {
   };
 
   return (
-
     <section className="main">
       <div className="inner">
         <div>
-          <img src={Logo} />
+          <img src={Logo} alt="Logo" />
         </div>
         <div className="right-form">
           {error && <p>{error}</p>}
@@ -79,19 +85,24 @@ const Login = () => {
             />
             <div className="inputDiv">
               <input
-                type="password"
+                type={pswd}
                 value={data.password}
                 name="password"
                 onChange={handleChange}
                 placeholder="Enter your password"
               />
-              <span className="eye">
+              <span className="eye" onClick={(e) => showPassword(e)}>
                 <img src={hide} alt="eye" />
               </span>
             </div>
-            <a href="#">Forgot password ?</a>
-            <button className="loginBtn" onClick={handleLogin}>Login</button>
-            <p>Don't have an account? <a href='#'>Create an account</a></p>
+            <Link to="/login">Forgot password ?</Link>
+            <button className="loginBtn" onClick={handleLogin}>
+              Login
+            </button>
+            <p>
+              Don't have an account?
+              <Link to="/register">Create an account</Link>
+            </p>
           </form>
         </div>
       </div>

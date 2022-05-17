@@ -2,13 +2,20 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import Dashboard from "./user/Dashboard";
-import { BLORoute, RORoute, UnauthRoute, UserRoute } from "./AuthRoutes";
+import {
+  AdminRoute,
+  BLORoute,
+  RORoute,
+  UnauthRoute,
+  UserRoute,
+} from "./AuthRoutes";
 import Home from "./Home";
 import ApplyCandidature from "./user/ApplyCandidature";
 import ErrorPage from "./ErrorPage";
 import Election from "./user/Election";
 import BLO from "./Officers/BLO";
 import RO from "./Officers/RO";
+import Admin from "./Officers/Admin";
 
 function App() {
   return (
@@ -79,6 +86,7 @@ function App() {
           }
           exact
         />
+
         {/* RO Page */}
         <Route
           path="/r"
@@ -88,6 +96,16 @@ function App() {
             </RORoute>
           }
           exact
+        />
+
+        {/* Admin Page */}
+        <Route
+          path="/a"
+          element={
+            <AdminRoute>
+              <Admin />
+            </AdminRoute>
+          }
         />
 
         {/* Error Page */}

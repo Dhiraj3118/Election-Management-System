@@ -1,155 +1,174 @@
 .main-cand {
-    height: 0vh;
-    padding: 0;
-    margin: 0;
-    background-color: white;
+  padding: 1rem;
+  margin: 0;
+  background-color: white;
+  background-color: #437fc7;
 }
-.navbar-cand{
-    background-color: #437fc7;
-    text-align: center;
-    color: white;
-    height: 3rem;
-    font-size: 2rem;;
-}
-.head-cand{
-    margin: 1rem 0 0 1rem;
-    font-size: 1.5rem;
+.navbar-cand {
+  background-color: #437fc7;
+  text-align: center;
+  color: white;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
 }
 
-.perDet{
-    display: flex;
-    flex-direction: column;
-}
-.perDet-1, .perDet-2{
-    display: flex;
-    margin: 0.5rem 0 0 1.5rem;
-}
-.perDet-1 input{
-    margin-left: 1rem;
-    padding: 0.1rem;
-    width: 120vh;
-    border: none;
-    border-bottom: 2px solid #000;
-}
-.perDet-2 input{
-    margin-left: 1.1rem;
-    padding: 0.1rem;
-    width: 120vh;
-    border: none;
-    border-bottom: 2px solid #000;
+.main-cand form {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1rem;
 }
 
-.head-const{
-    margin: 1rem 0 0 1rem;
-    font-size: 1.5rem;
-}
-.const{
-    display: flex;
-    flex-direction: column;
-}
-.const-1, .const-2{
-    display: flex;   
-    margin: 0.5rem 0 0 1.5rem;
-}
-.party label{
-    margin: 0.5rem 0 0 1.5rem;
-}
-.const-1 const-11, #voterState, #voterArea{
-    margin-left: 2.1rem;
-    padding: 0.1rem;
-}
-.const-2 const-21, #candState{
-    margin-left: 2rem;
-    padding: 0.1rem;
-}
-.const-2 #candArea{
-    margin-left: 2.1rem;
-    padding: 0.1rem;
-}
-.party input{
-    margin-left: 2rem;
-    padding: 0.1rem;
-    width: 120vh;
-    border: none;
-    border-bottom: 2px solid #000;
+.head-cand {
+  margin: 1rem 0 0 1rem;
+  font-size: 1.5rem;
 }
 
-.head-elig{
-    margin: 1rem 0 0 1rem;
-    font-size: 1.5rem;
+.perDet {
+  display: flex;
+  flex-direction: column;
 }
-.elig-1{
-    display: flex;
-    flex-direction: column;
+.perDet-1,
+.perDet-2 {
+  display: flex;
+  margin: 0.5rem 0 0 1.5rem;
 }
-.elig-11, .elig-12, .elig-13, .elig-14, .elig-15{
-    display: flex;
+.perDet-1 input {
+  margin-left: 1rem;
+  padding: 0.1rem;
+  width: 120vh;
+  border: none;
+  border-bottom: 2px solid #000;
 }
-.elig-1 p, input, label{
-    margin: 0.5rem 0 0 1.5rem;
-}
-.elig-11 #citi-1{
-    margin: 0.7rem 0 0 15rem;
-}
-.elig-11 #citi-2{
-    margin: 0.7rem 0 0 5rem;
-}
-
-.elig-12 #cb-1{
-    margin: 0.7rem 0 0 12.5rem;
-}
-.elig-12 #cb-2{
-    margin: 0.7rem 0 0 7.2rem;
+.perDet-2 input {
+  margin-left: 1.1rem;
+  padding: 0.1rem;
+  width: 120vh;
+  border: none;
+  border-bottom: 2px solid #000;
 }
 
-.elig-13 #cpc-1{
-    margin: 0.7rem 0 0 3.55rem;
+.head-const {
+  margin: 1rem 0 0 1rem;
+  font-size: 1.5rem;
 }
-.elig-13 #cpc-2{
-    margin: 0.7rem 0 0 7.18rem;
+.const {
+  display: flex;
+  flex-direction: column;
+}
+.const-1,
+.const-2 {
+  display: flex;
+  margin: 0.5rem 0 0 1.5rem;
+}
+.party label {
+  margin: 0.5rem 0 0 1.5rem;
+}
+.const-1 const-11,
+#voterState,
+#voterArea {
+  margin-left: 2.1rem;
+  padding: 0.1rem;
+}
+.const-2 const-21,
+#candState {
+  margin-left: 2rem;
+  padding: 0.1rem;
+}
+.const-2 #candArea {
+  margin-left: 2.1rem;
+  padding: 0.1rem;
+}
+.party input {
+  margin-left: 2rem;
+  padding: 0.1rem;
+  width: 120vh;
+  border: none;
+  border-bottom: 2px solid #000;
 }
 
-.elig-14 #gfc-1{
-    margin: 0.7rem 0 0 11.18rem;
+.head-elig {
+  margin: 1rem 0 0 1rem;
+  font-size: 1.5rem;
 }
-.elig-14 #gfc-2{
-    margin: 0.7rem 0 0 7.18rem;
+.elig-1 {
+  display: flex;
+  flex-direction: column;
+}
+.elig-11,
+.elig-12,
+.elig-13,
+.elig-14,
+.elig-15 {
+  display: flex;
+}
+.elig-1 p,
+input,
+label {
+  margin: 0.5rem 0 0 1.5rem;
+}
+.elig-11 #citi-1 {
+  margin: 0.7rem 0 0 15rem;
+}
+.elig-11 #citi-2 {
+  margin: 0.7rem 0 0 5rem;
 }
 
-.elig-15 #lw-1{
-    margin: 0.7rem 0 0 16.13rem;
+.elig-12 #cb-1 {
+  margin: 0.7rem 0 0 12.5rem;
 }
-.elig-15 #lw-2{
-    margin: 0.7rem 0 0 7.18rem;
-}
-
-.terms span{
-    color: red;
-}
-.terms{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 1.4rem;
+.elig-12 #cb-2 {
+  margin: 0.7rem 0 0 7.2rem;
 }
 
-.RegCandbtn{
-    margin: 0rem 0 1rem 35.1rem;
-    padding: 0.5rem;
-    width: 26rem;
-    cursor: pointer;
-    transition: 0.8s;
-    font-family: 'Inter', sans-serif;
-
-    background-color: white;
-    color: #437fc7;
-    border-radius: 10px;
-    border: 2px solid #437fc7;
-    background-image: linear-gradient(to right, transparent 50%, #437fc7 50%);
-    background-size: 200%;
-    background-position: 0%;
+.elig-13 #cpc-1 {
+  margin: 0.7rem 0 0 3.55rem;
 }
-.RegCandbtn:hover{
-    color: white;
-    background-position: 99.82% 180%;
+.elig-13 #cpc-2 {
+  margin: 0.7rem 0 0 7.18rem;
+}
+
+.elig-14 #gfc-1 {
+  margin: 0.7rem 0 0 11.18rem;
+}
+.elig-14 #gfc-2 {
+  margin: 0.7rem 0 0 7.18rem;
+}
+
+.elig-15 #lw-1 {
+  margin: 0.7rem 0 0 16.13rem;
+}
+.elig-15 #lw-2 {
+  margin: 0.7rem 0 0 7.18rem;
+}
+
+.terms span {
+  color: red;
+}
+.terms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.4rem;
+}
+
+.RegCandbtn {
+  display: block;
+  margin: 1rem auto;
+  padding: 0.5rem;
+  width: 26rem;
+  cursor: pointer;
+  transition: 0.8s;
+  font-family: "Inter", sans-serif;
+
+  background-color: white;
+  color: #437fc7;
+  border-radius: 10px;
+  border: 2px solid #437fc7;
+  background-image: linear-gradient(to right, transparent 50%, #437fc7 50%);
+  background-size: 200%;
+  background-position: 0%;
+}
+.RegCandbtn:hover {
+  color: white;
+  background-position: 99.82% 180%;
 }

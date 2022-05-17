@@ -69,8 +69,7 @@
     background-position: 99.82% 180%;
 }
 
-input:focus {
-    border: none;
+.right-form input:focus {
     outline: none;
 }
 

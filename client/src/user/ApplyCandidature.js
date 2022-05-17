@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import './ApplyCandidature.css'
+import Navbar from "../Navbar";
+import "./ApplyCandidature.css";
 
 const ApplyCandidature = () => {
   const params = useParams();
@@ -77,34 +78,38 @@ const ApplyCandidature = () => {
   }, []);
 
   return (
-    <div className="main-cand">
-      {error && <p>{error}</p>}
-      {success && <p>{success}</p>}
-      <div className="navbar-cand">
+    <>
+      <Navbar />
+      <div className="main-cand">
+        {error && <p>{error}</p>}
+        {success && <p>{success}</p>}
+        <div className="navbar-cand">
           <p>Candidate Registration Form</p>
-      </div>
-      <form>
-        {/* Personal Details */}
-        <div className="form-per">
-          <div className="head-cand">
-              <p>Personal Details</p> 
-          </div>
-          <br />
-          <hr />
-          <br />
-          <div className="perDet">
-            <div className="perDet-1">
+        </div>
+        <form>
+          {/* Personal Details */}
+          <div className="form-per">
+            <div className="head-cand">
+              <p>Personal Details</p>
+            </div>
+            <br />
+            <hr />
+            <br />
+            <div className="perDet">
+              <div className="perDet-1">
                 <label htmlFor="education">Educational Qualification : </label>
-                <input 
+                <input
                   type="text"
                   name="education"
                   value={data.education}
                   placeholder="Enter Your Response Here"
                   onChange={handleChange}
                 />
-            </div>
-            <div className="perDet-2">
-                <label htmlFor="employment">Current Employment &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;: </label>
+              </div>
+              <div className="perDet-2">
+                <label htmlFor="employment">
+                  Current Employment &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;:{" "}
+                </label>
                 <input
                   type="text"
                   name="employment"
@@ -112,23 +117,30 @@ const ApplyCandidature = () => {
                   placeholder="Enter Your Response Here"
                   onChange={handleChange}
                 />
+              </div>
             </div>
-          </div>
-        </div>
-        <br />
-        <hr />
-        {/* Constituency */}
-        <div className="form-const">
-          <div className="head-const">
-               <p>Constiutency</p>
           </div>
           <br />
           <hr />
-          <br />
-          <div className="const">
-            <div className="const-1">
-                <p className="const-11">Constituency where you are registered as voter &nbsp; &nbsp; &nbsp;: </p>
-                <select id="voterState" name="voterState" onChange={handleChange}>
+          {/* Constituency */}
+          <div className="form-const">
+            <div className="head-const">
+              <p>Constiutency</p>
+            </div>
+            <br />
+            <hr />
+            <br />
+            <div className="const">
+              <div className="const-1">
+                <p className="const-11">
+                  Constituency where you are registered as voter &nbsp; &nbsp;
+                  &nbsp;:{" "}
+                </p>
+                <select
+                  id="voterState"
+                  name="voterState"
+                  onChange={handleChange}
+                >
                   <option>Select State</option>
                   {states &&
                     states.map((state) => (
@@ -147,51 +159,56 @@ const ApplyCandidature = () => {
                       </option>
                     ))}
                 </select>
+              </div>
+              <div className="const-2">
+                <p className="const-21">
+                  Constituency where you are applying as candidate :{" "}
+                </p>
+                <select id="candState" name="candState" onChange={handleChange}>
+                  <option>Select State</option>
+                  {states &&
+                    states.map((state) => (
+                      <option key={state} value={state}>
+                        {state}
+                      </option>
+                    ))}
+                </select>
+                <select name="candArea" id="candArea" onChange={handleChange}>
+                  <option>Select City</option>
+                  {areaData
+                    .filter((area) => area.State === data.candState)
+                    .map(({ City }) => (
+                      <option key={City} value={City}>
+                        {City}
+                      </option>
+                    ))}
+                </select>
+              </div>
+              <div className="party">
+                <label htmlFor="party">
+                  Enter your Political Party &ensp; &ensp; &ensp; &ensp; &ensp;
+                  &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; :{" "}
+                </label>
+                <input
+                  type="text"
+                  name="party"
+                  value={data.party}
+                  onChange={handleChange}
+                  placeholder="Enter Your Response Here"
+                />
+              </div>
             </div>
-            <div className="const-2">
-              <p className="const-21">Constituency where you are applying as candidate : </p>
-              <select id="candState" name="candState" onChange={handleChange}>
-                <option>Select State</option>
-                {states &&
-                  states.map((state) => (
-                    <option key={state} value={state}>
-                      {state}
-                    </option>
-                  ))}
-              </select>
-              <select name="candArea" id="candArea" onChange={handleChange}>
-                <option>Select City</option>
-                {areaData
-                  .filter((area) => area.State === data.candState)
-                  .map(({ City }) => (
-                    <option key={City} value={City}>
-                      {City}
-                    </option>
-                  ))}
-              </select>
-            </div>
-            <div className="party">
-              <label htmlFor="party">Enter your Political Party &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;  : </label>
-              <input
-                type="text"
-                name="party"
-                value={data.party}
-                onChange={handleChange}
-                placeholder="Enter Your Response Here"
-              />
-            </div>
-          </div>
-        </div>
-        <br />
-        <hr />
-        {/* Eligibility Details */}
-        <div className="elig">
-          <div className="head-elig">
-              <p>Eligibility Details</p> 
           </div>
           <br />
           <hr />
-          <div className="elig-1">
+          {/* Eligibility Details */}
+          <div className="elig">
+            <div className="head-elig">
+              <p>Eligibility Details</p>
+            </div>
+            <br />
+            <hr />
+            <div className="elig-1">
               <div className="elig-11">
                 <p>How you aquired Indian Citizenship?</p>
                 <input
@@ -290,28 +307,29 @@ const ApplyCandidature = () => {
                 />
                 <label htmlFor="lw-2">Yes</label>
               </div>
+            </div>
           </div>
-        </div>
-        <br />
-        <hr />
-        {/* Terms and Conditions */}
-        <div className="terms">
-          <input
-            type="checkbox"
-            name="accept"
-            id="accept"
-            value={accept}
-            onChange={() => setAccept(!accept)}
-          />
-          <label htmlFor="accept">
-            I've read and accept the <span>terms and conditions*</span> 
-          </label>
-        </div>
-        <button onClick={register} disabled={!accept} className="RegCandbtn">
-          Register
-        </button>
-      </form>
-    </div>
+          <br />
+          <hr />
+          {/* Terms and Conditions */}
+          <div className="terms">
+            <input
+              type="checkbox"
+              name="accept"
+              id="accept"
+              value={accept}
+              onChange={() => setAccept(!accept)}
+            />
+            <label htmlFor="accept">
+              I've read and accept the <span>terms and conditions*</span>
+            </label>
+          </div>
+          <button onClick={register} disabled={!accept} className="RegCandbtn">
+            Register
+          </button>
+        </form>
+      </div>
+    </>
   );
 };
 

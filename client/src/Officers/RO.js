@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import './RO.css'
+import Navbar from "../Navbar";
+import "./RO.css";
 const RO = () => {
   const [candidates, setCandidates] = useState([]);
 
@@ -15,9 +16,9 @@ const RO = () => {
       },
     })
       .then((res) => res.json())
-      .then((data) => { 
-        console.log(data)
-        setCandidates(data.data) 
+      .then((data) => {
+        console.log(data);
+        setCandidates(data.data);
       })
       .catch((error) => console.log(error));
   }, []);
@@ -43,23 +44,33 @@ const RO = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className = "canbg">
-      <div className = "cantitle"> <p>Approve Candidate</p> </div>
-      <div className = "Alldetails">
-        {candidates.map((cand) => (
-          
-            <div className = "canDetails" key={cand.id}> 
-                <p className="canName">Name: {cand.name}</p>
-                <p className = "canParty">Party: {cand.party}</p>
-                <p className = "canArea"> Area: {cand.candCity} , {cand.candState}</p>
-                <button className = "AprCan" onClick={() => approveCandidate(cand.id)}>
-                  Approve Candidate
-                </button>
+    <>
+      <Navbar />
+      <div className="canbg">
+        <div className="cantitle">
+          {" "}
+          <p>Approve Candidate</p>{" "}
+        </div>
+        <div className="Alldetails">
+          {candidates.map((cand) => (
+            <div className="canDetails" key={cand.id}>
+              <p className="canName">Name: {cand.name}</p>
+              <p className="canParty">Party: {cand.party}</p>
+              <p className="canArea">
+                {" "}
+                Area: {cand.candCity} , {cand.candState}
+              </p>
+              <button
+                className="AprCan"
+                onClick={() => approveCandidate(cand.id)}
+              >
+                Approve Candidate
+              </button>
             </div>
-        ))}
+          ))}
+        </div>
       </div>
-      
-    </div>
+    </>
   );
 };
 

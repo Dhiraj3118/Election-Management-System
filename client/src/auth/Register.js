@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import './Register.css'
-import hide from './hide.png'
+import "./Register.css";
+import hide from "./hide.png";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -84,7 +84,7 @@ const Register = () => {
   return (
     <div className="main-Reg">
       {error && <p>{error}</p>}
-      <div className="navbar">
+      <div className="regTitle">
         <p>Voter Registration Form</p>
       </div>
       <form>
@@ -126,7 +126,9 @@ const Register = () => {
         <hr />
         <div className="Details">
           <div className="det-1-field">
-            <p>Personal <br /> Details</p>
+            <p>
+              Personal <br /> Details
+            </p>
           </div>
           <div className="det-2-field">
             <p>2</p>
@@ -160,15 +162,20 @@ const Register = () => {
         <div className="Identity">
           <div className="iden-1-field">
             <p>Identification</p>
-            <p id="det-identity">provide your <br /> birthdate and <br /> gender</p>
+            <p id="det-identity">
+              provide your <br /> birthdate and <br /> gender
+            </p>
           </div>
           <div className="iden-2-field">
             <p>3</p>
           </div>
           <div className="iden-3-field">
             <div className="dob">
-              <label htmlFor="date" className="dob-1">Date of birth : </label>
-              <input className="dob-2"
+              <label htmlFor="date" className="dob-1">
+                Date of birth :{" "}
+              </label>
+              <input
+                className="dob-2"
                 type="date"
                 name="dob"
                 value={data.dob}
@@ -214,7 +221,8 @@ const Register = () => {
             <p>4</p>
           </div>
           <div className="adr-3-field">
-            <textarea className="adr-1"
+            <textarea
+              className="adr-1"
               name="address"
               value={data.address}
               onChange={handleChange}
@@ -222,7 +230,8 @@ const Register = () => {
             ></textarea>
 
             <div className="adr-2">
-              <input id="pin-code"
+              <input
+                id="pin-code"
                 type="number"
                 name="pincode"
                 value={data.pincode}
@@ -257,7 +266,9 @@ const Register = () => {
         <hr />
         <div className="Auth">
           <div className="Auth-1-field">
-            <p>Authenticate <br /> Yourself</p>
+            <p>
+              Authenticate <br /> Yourself
+            </p>
           </div>
           <div className="Auth-2-field">
             <p>5</p>
@@ -270,30 +281,32 @@ const Register = () => {
               onChange={handleChange}
               placeholder="Your Email"
             />
-            <input className="password"
+            <input
+              className="password"
               type="password"
               name="password"
               value={data.password}
               onChange={handleChange}
               placeholder="Password"
             />
-            <button className="eye_form">
+            <span className="eye_form">
               <img src={hide} alt="eye" />
-            </button>
+            </span>
           </div>
         </div>
         <br />
         <hr />
         <br />
         <div className="checkbox">
-          <input className="check"
+          <input
+            className="check"
             type="checkbox"
             name="accept"
             id="accept"
             value={accept}
             onChange={() => setAccept(!accept)}
           />
-          <label htmlFor="accept">
+          <label htmlFor="accept" style={{ margin: 0 }}>
             I've read and accepted the <span>terms and conditions*</span>
           </label>
         </div>
